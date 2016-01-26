@@ -47,13 +47,11 @@ def main():
 
   device = MonkeyRunner.waitForConnection()
  
-  index = 0;
   #1. save origin snapshot
   pic = process(device, touch_cmd, touch_parameter, 4.0)
-  pic.writeToFile("%s/%d.png" % (out_folder, index), "png")
-  #2. save more new snaoshot
-  while(1):
-    index += 1
+  pic.writeToFile("%s/0.png" % out_folder, "png")
+  #2. save more new snaoshot, count 100 is enough
+  for index in range(1, 100):
     pic = process(device, touch_cmd, touch_parameter, 2.0)
     pic.writeToFile("%s/%d.png" % (out_folder, index), "png") 
  
